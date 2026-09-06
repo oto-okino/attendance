@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}打刻{% endblock %}
+{% block content %}
+    <h1>打刻</h1>
+    <p>{{ user.username }} <span id="working-indicator" class="working-indicator">出勤中</span></p>
+    <form method="post" action="{% url 'event_create' %}">
+        {% csrf_token %}
+        <input type="hidden" name="event_type" value="clock_in">
+        <button type="submit">出勤</button>
+    </form>
+
+    <form method="post" action="{% url 'event_create' %}">
+        {% csrf_token %}
+        <input type="hidden" name="event_type" value="clock_out">
+        <button type="submit">退勤</button>
+    </form>
+    <table>
+        <thead>
+            <tr>
+                <th>時間</th>
+                <th>打刻種別</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for attendance_event in attendance_events %}
+            <tr>
+                <td>{{attendance_event.occurred_at}}</td>
+                <td>{{attendance_event.get_event_type_display}}</td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="2">まだ打刻記録がありません</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{% url 'dashboard' %}">ダッシュボード</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}ダッシュボード{% endblock %}
+{% block content %}
+<div>Welcome {{ user.username}} <span id="working-indicator" class="working-indicator"> </span></div>
+<div>
+    <a href="{% url 'login' %}">ログイン</a>
+</div>
+<div>
+    <a href="{% url 'logout' %}">ログアウト</a>
+</div>
+<div>
+    <a href="{% url 'attendance' %}">打刻</a>
+</div>
+{% endblock %}

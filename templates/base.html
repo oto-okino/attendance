@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        async function updateAttendanceStatus() {
+            try {
+                const response = await fetch(
+                    "{% url 'attendance_status_api' %}"
+                );
+
+                if (!response.ok) {
+                    throw new Error("勤務状態を取得できませんでした");
+                }
+
+                const data = await response.json();
+                const indicator = document.getElementById("working-indicator");
+                
+                if (!data.is_working) {
+                    indicator.hidden = true
+                }
+                console.log(data.is_working)
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        updateAttendanceStatus();
+    </script>
+    {% load static %}
+    <link rel="icon" href="{% static 'icon/favicon.ico' %}">
+    <title>{% block title %}勤怠管理{% endblock %}</title>
+    <style>
+        .working-indicator {
+            /* display: inline; */
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: #22c55e;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+    <nav>
+        <a href="{% url 'dashboard' %}">ホーム</a>
+
+        <a href="{% url 'attendance' %}">
+            打刻
+        </a>
+    </nav>
+    {% block scripts %}
+    {% endblock %}
+</body>
+</html>
