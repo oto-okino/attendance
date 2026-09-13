@@ -1,3 +1,20 @@
 .env
 .env.*
 !.env.example
+
+__pycache__/
+*.py[cod]
+*.log
+
+.venv/
+venv/
+
+# エディタ
+.vscode/
+.idea/
+
+# ユーザーがアップロードしたファイル
+media/
+
+# collectstaticで生成されるファイル
+staticfiles/
