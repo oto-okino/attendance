@@ -21,5 +21,3 @@ Azure App Service を利用した勤怠管理 Web アプリ
 
 ## 利用方法
 [Wiki](https://github.com/oto-okino/attendance/wiki/%E5%88%A9%E7%94%A8%E6%96%B9%E6%B3%95) をご参考下さい
-
-test
