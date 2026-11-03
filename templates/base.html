@@ -28,8 +28,14 @@
 
         updateAttendanceStatus();
     </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
     {% load static %}
     <link rel="icon" href="{% static 'icon/favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/destyle.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
     <title>{% block title %}勤怠管理{% endblock %}</title>
     <style>
         .working-indicator {
