@@ -9,25 +9,34 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/destyle.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'css/landing.css' %}">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
 <body>
     <main class="vanta-bg">
         <h1 class="title">Attendance</h1>
-        <div><a href="{% url 'login' %}">ログイン</a></div>
-        <div><a href="{% url 'signup' %}">新規登録</a></div>
+        <div class="button noto-sans font-weight-bold"><a href="{% url 'login' %}">ログイン</a></div>
+        <div class="button noto-sans font-weight-bold"><a href="{% url 'signup' %}">新規登録</a></div>
     </main>
-    <!-- 背景 -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r121/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.halo.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.fog.min.js"></script>
     <script>
-        VANTA.HALO({
+        VANTA.FOG({
             el: ".vanta-bg",
             mouseControls: true,
             touchControls: true,
             gyroControls: false,
             minHeight: 200.00,
-            minWidth: 200.00
-        });
+            minWidth: 200.00,
+            highlightColor: 0xa68fff,
+            midtoneColor: 0xfcd0fc,
+            lowlightColor: 0x2dff,
+            baseColor: 0xabbcf5,
+            blurFactor: 0.72,
+            speed: 2.00,
+        })
     </script>
 </body>
 </html>
